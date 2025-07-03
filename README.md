@@ -1,59 +1,38 @@
 # Monitoreo Installer 📲
 
-Este repositorio contiene los archivos APK necesarios para instalar la app **Monitoreo de Patentes** en modo **Device Owner** en dispositivos Android.
+Este repositorio contiene todo lo necesario para instalar la app **Monitoreo de Patentes** como **Device Owner** en un dispositivo Android.
 
 ---
 
-## 📦 ¿Qué es esta app?
+## 🔧 Requisitos
 
-La app *Monitoreo de Patentes* permite gestionar y automatizar el monitoreo de vehículos utilizando cámaras ANPR, detección automática de patentes, actualizaciones remotas y más.
-
-Está diseñada para funcionar como **única app del dispositivo**, en modo kiosco o entorno controlado.
-
----
-
-## 🔐 Instalación como Device Owner (sin PC, solo escaneando un QR)
-
-> ⚠️ Este método requiere **resetear el dispositivo a estado de fábrica** y funciona en Android 9 o superior.
-
-### ✅ Paso a paso
-
-1. **Restablecer el dispositivo a estado de fábrica**  
-   Ir a: `Ajustes > Sistema > Opciones de restablecimiento > Borrar todos los datos`
-
-2. **En la primera pantalla** (bienvenida), **tocar 6 veces seguidas** cualquier parte de la pantalla
-
-3. Se abrirá un lector QR
-
-4. Escanear el siguiente código QR:  
-   *(Agregalo aquí o en el repositorio como imagen `qr_device_owner.png`)*
-
-5. Esperar a que se descargue e instale automáticamente la app
-
-6. Listo, el dispositivo se configurará automáticamente como **Monitoreo de Patentes (Device Owner)**
+- Un dispositivo Android **reseteado de fábrica**
+- Una PC con Windows
+- Cable USB
+- Este repositorio descargado (no hace falta Android Studio)
 
 ---
 
-## 🔗 Última versión del APK
+## 📥 Descarga del instalador
 
-Descargar el APK más reciente desde la carpeta `/apk/` de este repositorio:
-
-👉 [`/apk/monitoreo.apk`](./apk/monitoreo.apk)
-
----
-
-## 🔐 QR de provisionamiento (modo Device Owner)
-
-La imagen `qr_device_owner.png` contiene el código QR que permite provisionar cualquier dispositivo Android 9+ con la app.
-
-También podés regenerarlo con herramientas como:  
-[https://zxing.appspot.com/generator](https://zxing.appspot.com/generator)
+1. Hacé clic en el botón **"Code" > Download ZIP**
+2. Extraé el contenido en una carpeta (por ejemplo `C:\monitoreo_installer`)
+3. Conectá el dispositivo por USB
 
 ---
 
-## 📜 Licencia
+## 🛠️ Instalación como Device Owner (sin QR)
 
-Este repositorio es de uso privado para despliegue y distribución interna. No redistribuir públicamente sin autorización.
+1. **Abrí una terminal (CMD o PowerShell)**
+2. Navegá a la carpeta donde descomprimiste el repositorio, por ejemplo:
 
----
+```bash
+cd C:\monitoreo_installer
+```
 
+3. Ejecutá los siguientes comandos:
+
+```bash
+adb install monitoreo.apk
+adb shell dpm set-device-owner com.luxetecnogames.monitoreopatentes/.MyDeviceAdminReceiver
+```
